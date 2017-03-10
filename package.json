@@ -1,0 +1,18 @@
+{
+  "name": "meipai-app",
+  "version": "1.0.0",
+  "description": "抓取美拍的数据,通过videojs插件进行数据展示",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "meipai.com",
+    "video.js"
+  ],
+  "author": "arivin",
+  "license": "ISC",
+  "dependencies": {
+    "crawler": "^1.0.1"
+  }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>美拍视频展示</title>
+        <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://vjs.zencdn.net/5.14.1/video-js.css">
+        <!-- If you'd like to support IE8 -->
+        <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+        <style type="text/css">
+.thumbnail{
+    height:260px;
+}
+.video-js{
+    width:100%;
+    height:100%;
+}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">美拍视频</h3>
+                </div>
+                <div class="panel-body">
+                    <!-- 左侧导航 -->
+                    <div class="col-md-2" id="navList">
+                    </div>
+                    <!-- 右侧内容区域 -->
+                    <div class="col-md-10">
+                        <div class="input-group">
+                            <input type="text" id="txtSearch" placeholder="请输入查询关键字" class="form-control">
+                            <span class="input-group-btn">
+                                <button id="btnSearch" class="btn btn-default" type="button">Go!</button>
+                            </span>
+                        </div>
+                        <div id="contentContainer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script id="tplNav" type="text/html">
+{{each types}}
+        <div class="list-group">
+            <a href="#" data-tid="{{$value.id}}" class="list-group-item">{{$value.name}}</a>
+        </div>
+        {{/each}}
+        </script>
+        <script id="tplContentList" type="text/html">
+{{each listData}}
+        <div class="col-md-6">
+        <div class="thumbnail">
+        
+    <video id="video-{{$index}}" class="video-js" controls preload="auto" width="100%" height="100%" poster="{{$value.img}}" data-setup="{}">
+        <source src="{{$value.video}}" type='video/mp4'>
+        <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+    </video>
+    <div class="caption">
+    <p>{{$value.title}}</p>
+    </div>
+</div>
+        </div>
+        {{/each}}
+        </script>
+        <script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="lib/template.js"></script>
+        <script src="http://vjs.zencdn.net/5.14.1/video.js"></script>
+        <script src="js/v.js"></script>
+    </body>
+</html>
